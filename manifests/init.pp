@@ -28,7 +28,7 @@ class hwiis {
   ->iis_site { 'hwsite':
     ensure          => 'started',
     physicalpath    => 'c:\\hwsite',
-    applicationpool => 'DefaultAppPool',
+    applicationpool => 'hwsite',
   }
 
 }
