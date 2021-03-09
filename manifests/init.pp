@@ -6,6 +6,11 @@
 #   include hwiis
 class hwiis {
 
+  package { 'ruby-pwsh':
+    ensure   => 'installed',
+    provider => 'gem',
+  }
+
   windowsfeature { 'Web-WebServer':
     ensure                 => present,
     installmanagementtools => true,
