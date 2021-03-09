@@ -15,4 +15,15 @@ class hwiis {
     ensure                 => present,
     installmanagementtools => true,
   }
+
+  iis_site { 'hwsite':
+    ensure          => 'started',
+    physicalpath    => 'c:\\hwsite',
+    applicationpool => 'DefaultAppPool',
+  }
+
+  file { 'minimal':
+    ensure => 'directory',
+    path   => 'c:\\inetpub\\minimal',
+  }
 }
