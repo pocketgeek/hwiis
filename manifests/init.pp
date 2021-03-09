@@ -6,10 +6,16 @@
 #   include hwiis
 class hwiis {
 
-  windowsfeature { 'Web-WebServer':
-    ensure                 => present,
-    installmanagementtools => true,
+  $iis_features = ['Web-WebServer','Web-Scripting-Tools']
+
+#  windowsfeature { 'Web-WebServer':
+#    ensure                 => present,
+#    installmanagementtools => true,
 #    installsubfeatures => true,
+#  }
+
+  iis_feature { $iis_features:
+    ensure => 'present',
   }
 
 }
