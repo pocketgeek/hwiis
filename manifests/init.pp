@@ -11,25 +11,25 @@ class hwiis {
     provider => 'gem',
   }
 
-#  ->windowsfeature { 'Web-WebServer':
-#    ensure                 => present,
-#    installmanagementtools => true,
-#  }
+  ->windowsfeature { 'Web-WebServer':
+    ensure                 => present,
+    installmanagementtools => true,
+  }
 
-#  ->windowsfeature { 'Web-Scripting-Tools':
-#    ensure                 => present,
-#    installmanagementtools => true,
-#  }
+  ->windowsfeature { 'Web-Scripting-Tools':
+    ensure                 => present,
+    installmanagementtools => true,
+  }
 
-#  file { 'minimal':
-#    ensure => 'directory',
-#    path   => 'c:\\hwsite',
-#  }
+  file { 'minimal':
+    ensure => 'directory',
+    path   => 'c:\\hwsite',
+  }
 
-#  ->iis_site { 'hwsite':
-#    ensure          => 'started',
-#    physicalpath    => 'c:\\hwsite',
-#    applicationpool => 'DefaultAppPool',
-#  }
+  ->iis_site { 'hwsite':
+    ensure          => 'started',
+    physicalpath    => 'c:\\hwsite',
+    applicationpool => 'DefaultAppPool',
+  }
 
 }
