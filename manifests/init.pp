@@ -21,9 +21,8 @@ class hwiis {
     installmanagementtools => true,
   }
 
-  file { 'minimal':
+  ->file { 'c:\\hwsite':
     ensure => 'directory',
-    path   => 'c:\\hwsite',
   }
 
   ->iis_site { 'hwsite':
