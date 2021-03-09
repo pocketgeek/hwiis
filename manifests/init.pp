@@ -9,7 +9,7 @@ class hwiis {
   windowsfeature { 'Web-WebServer':
     ensure                 => present,
     installmanagementtools => true,
-    installsubfeatures => true,
+#    installsubfeatures => true,
   }
 
 }
