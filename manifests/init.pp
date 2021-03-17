@@ -33,7 +33,10 @@ class hwiis (
   }
 
   file { $websitedirectory:
-    ensure => 'directory',
+    ensure  => directory,
+    purge   => true,
+    recurse => true,
+    source  => 'puppet:///modules/hwiis/empty',
   }
 
   file { "${websitedirectory}\\pony.jpeg":
@@ -41,8 +44,8 @@ class hwiis (
     source => 'puppet:///modules/hwiis/pony.jpeg',
   }
 
-  file { "${websitedirectory}\\default.html":
+  file { "${websitedirectory}\\default.htm":
     ensure => 'present',
-    source => 'puppet:///modules/hwiis/default.html',
+    source => 'puppet:///modules/hwiis/default.htm',
   }
 }
