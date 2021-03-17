@@ -36,4 +36,13 @@ class hwiis (
     ensure => 'directory',
   }
 
+  file { 'pony.jpeg':
+    ensure => 'present',
+    source => 'puppet:///modules/hwiis/pony.jpeg',
+  }
+
+  file { 'default.html':
+    ensure => 'present',
+    source => 'puppet:///modules/hwiis/default.html',
+  }
 }
