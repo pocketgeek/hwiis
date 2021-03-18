@@ -9,8 +9,10 @@ class hwiis (
   $websitedirectory,
 ) {
 
+  #IIS and required features
   $iis_features = ['Web-WebServer','Web-Scripting-Tools']
 
+  #Make sure IIS and required features are installed
   iis_feature { $iis_features:
     ensure => 'present',
   }
@@ -22,6 +24,7 @@ class hwiis (
     require => Iis_feature['Web-WebServer'],
   }
 
+  #Build website
   iis_site { $websitename:
     ensure          => 'started',
     physicalpath    => $websitedirectory,
@@ -32,6 +35,7 @@ class hwiis (
     ],
   }
 
+  #Make sure the website base directory exsits and no extra stuff is in it
   file { $websitedirectory:
     ensure  => directory,
     purge   => true,
@@ -39,11 +43,13 @@ class hwiis (
     source  => 'puppet:///modules/hwiis/empty',
   }
 
+  #Website content.
   file { "${websitedirectory}\\pony.jpeg":
     ensure => 'present',
     source => 'puppet:///modules/hwiis/pony.jpeg',
   }
 
+  #Website content
   file { "${websitedirectory}\\default.htm":
     ensure => 'present',
     source => 'puppet:///modules/hwiis/default.htm',
